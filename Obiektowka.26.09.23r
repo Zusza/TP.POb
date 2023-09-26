@@ -1,0 +1,103 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace project_2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //Console.Write("Pierwszy program");
+            //Console.WriteLine(" w jezyku C#");
+            //Console.WriteLine("test");
+            ////Console.Clear(); //czyści ekran
+            ////Console.ReadKey(); //wyłącza konsole po kliknieńciu w podany klawisz
+
+            ////Typy danych
+            ////-int - System.Int32 lub zmienna liczbowa od -2.147.483.648 do 2.147.483.647 (32bity -> 4bajty) 
+            //int i; //deklaracja zmiennej i
+            //int i1 = 10; //deklaracja z jednoczesną inicjalizacją zmiennej i 
+
+            //int i3 = 10;         //\
+            //Int32 i4 = 10;        //| -> to samo znaczenie 
+            //System.Int32 i5 = 10;///
+
+            //Console.WriteLine("Zmienna i wynosi " + i1);
+            //System.Int32 i2 = 20;
+            //Console.WriteLine("Zmienna i1 wynosi: {0}, zmienna i2 wynosi: {1}", i1, i2); //Sposób #1 na wyświetlenie danych
+            //Console.WriteLine($"Zmienna i1 wynosi: {i1}, zmienna i2 wynosi: {i2}"); //Sposób #2 na wyświetlenie danych
+
+            ////byte - zmienna liczbowa od 0 do 255 (4 cyfrowych zmiennych nie zaakceptuje) (8 bitów -> 1 bajt)
+            //byte b = 13;
+            ////sbyte - zmienna liczbowa od -128 do 127 (8 bitów -> 1 bajt)
+            //sbyte sb = -10;
+            ////short - zmienna liczbowa od -32768 do 32767 (16 bitów -> 2 bajty)
+            //short s = -27;
+            ////ushort - (16 bitów -> 2 bajty)
+
+            ////uint - 4 294 967 295 (32 bitów -> 4 bajty)
+
+            ////long - (64 bity -> 8 bajtów)
+            //long l = -10L; //sufflix L
+            ////ulong 0 - 18 446 744 073 709 551 615 (64 bity -> 8 bajtów)
+            //ulong l1 = 10UL; //sufflix UL
+
+            //Console.WriteLine("Zmienna l: {0}, zmienna ul: {1}", l, l1);
+            ////bool (thrue lub false) ile ma bitów i bajtów
+
+            ////char od U+000 do U+FFF (16 bitowy znak z tablicy Unicode)
+
+            ////string ?
+
+            ////float od -3,4 * 10^38 do 3,4 * 10^38 (32 bity) 
+            //float f = 10.5F; //sufflix F
+            //                 //double (64 bity)
+
+            ////decimal (128 bitów)
+
+            ////---zapis sytemów liczbowych 26.09.23---
+            ////binarny
+            //Console.WriteLine(0b1001); //11(sys.10)
+
+            ////oktalny
+            //Console.WriteLine(011); //11
+            //int io = Convert.ToInt32("12",8);
+            //Console.WriteLine(io); //10 -> 2*8^0 + 1*8^1 = 2 + 8 = 10
+
+            ////hexadecymalny
+            //Console.WriteLine(0xA1); //161(10) -> Ax16^1 + 16^0 = 10 * 16 = 161(sys.10)
+
+            ////zakres typu danych
+            //Console.WriteLine(byte.MinValue); //0
+            //Console.WriteLine(byte.MaxValue); //255
+
+            //Console.WriteLine(sbyte.MinValue); //-128
+            //Console.WriteLine(sbyte.MaxValue); //127
+
+            //Console.WriteLine(int.MinValue); //-2147483648
+            //Console.WriteLine(Int32.MinValue); //-2147483648
+
+            //Console.WriteLine(long.MinValue); //-9223372036854775808
+            //Console.WriteLine(long.MaxValue); //9223372036854775807
+
+            //Console.WriteLine(float.MinValue); //-3,402823E+38
+            //Console.WriteLine(float.MaxValue); //3,402823E+38
+
+            //Console.WriteLine(double.MinValue); //-1,79769313486232E+308 
+            //Console.WriteLine(double.MaxValue); //1,79769313486232E+308
+
+            //Console.WriteLine(decimal.MinValue); //-79228162514264337593543950335
+            //Console.WriteLine(decimal.MaxValue); //79228162514264337593543950335
+
+            //Unicode
+            Console.InputEncoding = System.Text.Encoding.Unicode;
+            Console.WriteLine("><");
+            Console.InputEncoding = System.Text.Encoding.Unicode;
+            Console.WriteLine("Kwiat");
+            Console.ReadKey();
+        }
+    }
+}
