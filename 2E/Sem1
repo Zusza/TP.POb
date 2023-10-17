@@ -1,0 +1,66 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Wyjątki
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //double a;
+            //if (double.TryParse(Console.ReadLine(), out a))
+            //{
+            //    Console.WriteLine(a);
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Błędne dane!");
+            //}
+
+            Console.WriteLine("Podaj a:");
+            double a;
+            while (!double.TryParse(Console.ReadLine(), out a) || a <= 0)
+            {
+                Console.WriteLine("Wpisz prawidłowe dane!");
+            }
+            Console.WriteLine("Podaj b:");
+            double b;
+            while (!double.TryParse(Console.ReadLine(), out b) || b <= 0)
+            {
+                Console.WriteLine("Wpisz prawidłowe dane!");
+            }
+            Console.WriteLine("Podaj c:");
+            double c;
+            while (!double.TryParse(Console.ReadLine(), out c) || c <= 0)
+            {
+                Console.WriteLine("Wpisz prawidłowe dane!");
+            }
+            if (IsTriangle(a, b, c))
+            {
+                Console.WriteLine($"Pole trójkąta o bokach {a}, {b}, {c} wynosi: {Pole(a, b, c)}");
+            }
+            else
+            {
+                Console.WriteLine("Podane długości boków nie tworzą trójkąta");
+            }
+
+            bool IsTriangle(double x, double y, double z)
+            {
+                if(x + y > z && x + z > y && y + z > x)
+                    return true;
+                else
+                    return false;
+            }
+            double Pole(double x, double y, double z)
+            {
+                double p = (x + y + z) / 2;
+                double pole = Math.Sqrt(p * (p - x) * (p - y) * (p - z));
+                return pole;
+            }
+            }
+    }
+}
