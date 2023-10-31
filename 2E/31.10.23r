@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _31._10._23r
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //Napisz program w C#, który wczytuje liczbę całkowitą od użytkownika i oblicza jej pierwiastek kwadratowy.
+            //Jeśli liczba jest ujemna, program powinien zgłosić wyjątek ArgumentOutOfRangeException i wyświetlić odpowiedni komunikat. 
+            //Jeśli użytkownik wprowadzi nieprawidłowe dane, program powinien zgłosić wyjątek FormatException i poprosić o ponowne wprowadzenie liczby.
+            //Program powinien działać w pętli, dopóki użytkownik nie wpisze q.Użyj instrukcji try-catch-finally do obsługi wyjątków.
+            string x;
+            do
+            {
+                Console.WriteLine("Podaj dowolną liczbe aby uruchomić program lub kliknij 'q' aby wyjść z programu");
+                x = Console.ReadLine();
+                if (x == "q")
+                {
+                    break;
+                }
+                try
+                {
+                    int a = int.Parse(x);
+                    if (a <= 0)
+                    {
+                        throw new ArgumentOutOfRangeException("Podaj liczbę dodatnią całkowitą!");
+                    }
+                    double p = Math.Sqrt(a);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"Pierwiastek z podanej liczby wynosi: {p}");
+                    Console.ResetColor();
+                }
+                catch (FormatException ex)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Zły format. Podaj liczbę jeszcze raz.");
+                    Console.ResetColor();
+                }
+                catch (Exception ex)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"Błąd: {ex.Message}");
+                    Console.ResetColor();
+                }
+            }
+            while (x != "q");
+        }
+    }
+}
