@@ -1,0 +1,66 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _31._10._23r
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //Napisz program w C#, który wczytuje od użytkownika 5 liczb całkowitych i zapisuje je w tablicy. 
+            //Następnie program prosi użytkownika o podanie indeksu tablicy i wyświetla liczbę znajdującą się pod tym indeksem. 
+            //Jeśli użytkownik wprowadzi indeks spoza zakresu tablicy, program powinien zgłosić wyjątek ArgumentOutOfRangeException
+            //i wyświetlić odpowiedni komunikat.Jeśli użytkownik wprowadzi nieprawidłowe dane, program powinien zgłosić wyjątek FormatException
+            //i poprosić o ponowne wprowadzenie danych.Program powinien działać w pętli, dopóki użytkownik nie wpisze q.
+            //Użyj instrukcji try-catch do obsługi wyjątków.Jeśli liczba jest ujemna, program powinien zgłosić wyjątek ArgumentOutOfRangeException
+            //i wyświetlić odpowiedni komunikat. 
+            //Jeśli użytkownik wprowadzi nieprawidłowe dane, program powinien zgłosić wyjątek FormatException i poprosić o ponowne wprowadzenie liczby.
+            string x;
+            int[] T = new int[5];
+            bool isCorrect = false;
+            do
+            {
+                try
+                {
+                    for (int i = 0; i < T.Length; i++)
+                    {
+                        Console.WriteLine($"Podaj liczbe {i + 1}:");
+                        T[i] = int.Parse(Console.ReadLine());
+                    }
+                    isCorrect = true;
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"Podane liczby to: {T[0]},{T[1]},{T[2]},{T[3]},{T[4]}");
+                    Console.ResetColor();
+                }
+                catch (FormatException ex)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Nieprawidłowe dane wejściowe. Podaj liczbę jeszcze raz.");
+                    Console.ResetColor();
+                }
+                catch (OverflowException ex)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"Nieprawidłowe dane wejściowe. Podaj liczbę z zakresu od {int.MinValue} do {int.MaxValue}");
+                    Console.ResetColor();
+                }
+                catch (ArgumentOutOfRangeException ex)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"Błąd: {ex.ParamName}");
+                    Console.ResetColor();
+                }
+                catch (Exception ex)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"Błąd: {ex.Message}");
+                    Console.ResetColor();
+                }
+            }
+            while (!isCorrect);
+        }
+    }
+}
