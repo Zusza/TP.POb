@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _14._11._23r
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] tabA = CreateArray("tabA");
+            SetArray(tabA, "tabA");
+            DisplayArray(tabA, "tabA");
+
+        }
+        ////funkcja statyczna, która pozwala wprowadzić rozmiar tablicy i nazwę CreateArray()
+        public static int[] CreateArray(string name)
+        {
+            Console.WriteLine("Podaj rozmiar tablicy: ", name);
+            int s = int.Parse(Console.ReadLine());
+            int[] array = new int[s];
+            return array;
+        }
+        ////funkcja statyczna, która ustawia elementy tablicy SetArray()
+        public static void SetArray(int[] array, string name)
+        {
+            Console.WriteLine("Podaj elementy tablicy {0}", name);
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.WriteLine("{1}[{0}]: ", i, name);
+                array[i] = int.Parse(Console.ReadLine());
+            }
+        }
+        ////funkcja statyczna, która wyświetla zawartość tablicy DisplayArray()
+        public static void DisplayArray(int[] array, string name)
+        {
+            Console.WriteLine("Zawartość tablicy {0}: ", name);
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.WriteLine($"{array[i]} = {array[i]}", i);
+            }
+        }
+    }
+}
