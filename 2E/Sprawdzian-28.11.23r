@@ -1,0 +1,33 @@
+Zad.1 - Napisz program, który:
+Definiuje funkcję UtworzTabliceLiczb(int n), która przyjmuje jako parametr liczbę całkowitą n i zwraca tablicę jednowymiarową o długości n, wypełnioną liczbami z zakresu od 1 do 10, które podaje użytkownik z klawiatury
+Definiuje funkcję ObliczPole(int a), która przyjmuje jako parametr liczbę całkowitą a i zwraca wartość pola kwadratu o boku a. Wzór na pole kwadratu to:
+P=a2
+Definiuje funkcję ObliczObwod(int a), która przyjmuje jako parametr liczbę całkowitą a i zwraca wartość obwodu kwadratu o boku a. Wzór na obwód kwadratu to:
+O=4a
+W funkcji Main:
+Deklaruje zmienną n i przypisuje jej wartość 5.
+Wywołuje funkcję UtworzTabliceLiczb(n) i przypisuje jej wynik do zmiennej tablica.
+Wyświetla na ekranie zawartość tablicy tablica.
+Dla każdego elementu tablicy tablica:
+Wywołuje funkcję ObliczPole i przypisuje jej wynik do zmiennej pole.
+Wywołuje funkcję ObliczObwod i przypisuje jej wynik do zmiennej obwod.
+Wyświetla na ekranie informację o polu i obwodzie kwadratu o boku równym danemu elementowi tablicy.
+Napisz funkcję, która umożliwia podanie w parametrze indeksu tablicy a następnie zwróci ona wynik pola i obwodu kwadratu
+
+Zad.2 - Napisz program, który:
+Definiuje funkcję UtworzTabliceLiczb(int n), która przyjmuje jako parametr liczbę całkowitą n i zwraca tablicę jednowymiarową o długości n, wypełnioną liczbami z zakresu od 1 do 10, które podaje użytkownik z klawiatury
+Definiuje funkcję ObliczPole(int a), która przyjmuje jako parametr liczbę całkowitą a i zwraca wartość pola kwadratu o boku a. Wzór na pole kwadratu to:
+P=a2
+Definiuje funkcję ObliczObwod(int a), która przyjmuje jako parametr liczbę całkowitą a i zwraca wartość obwodu kwadratu o boku a. Wzór na obwód kwadratu to:
+O=4a
+W funkcji Main:
+Deklaruje zmienną n i przypisuje jej wartość 5.
+Wywołuje funkcję UtworzTabliceLiczb(n) i przypisuje jej wynik do zmiennej tablica.
+Wyświetla na ekranie zawartość tablicy tablica.
+Dla każdego elementu tablicy tablica:
+Wywołuje funkcję ObliczPole i przypisuje jej wynik do zmiennej pole.
+Wywołuje funkcję ObliczObwod i przypisuje jej wynik do zmiennej obwod.
+Wyświetla na ekranie informację o polu i obwodzie kwadratu o boku równym danemu elementowi tablicy.
+Napisz funkcję, która umożliwia podanie w parametrze indeksu tablicy a następnie zwróci ona wynik pola i obwodu kwadratu
+
+https://drive.google.com/drive/folders/1iIAKNdDHyyc1lk41IHYXw6kSbIhS5zFd?usp=sharing
