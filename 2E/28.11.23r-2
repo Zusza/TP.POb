@@ -1,29 +1,120 @@
-Napisz program w języku C#, który realizuje następujące funkcjonalności:
-  Program wczytuje z klawiatury liczbę n i tworzy tablicę dwuwymiarową o wymiarach n x n.
-  Program wypełnia tablicę liczbami losowymi z zakresu od 1 do 100 i wyświetla jej zawartość na ekranie.
-  Program oblicza i wyświetla sumę elementów na głównej przekątnej tablicy.
-  Program posiada menu, które umożliwia użytkownikowi wybór jednej z pięciu funkcji statycznych, które
-  realizują poszczególne kroki zadania.Menu jest wyświetlane na początku programu i po każdym wykonaniu funkcji.
-  Menu ma następującą postać:
-    Wybierz funkcję statyczną:
-        1.WczytajLiczbe
-        2.UtworzTablice
-        3.WypelnijTablice
-        4.WyswietlTablice
-        5.ObliczSume
-    -Funkcja WczytajLiczbe wczytuje liczbę z klawiatury i zwraca ją jako wartość typu int.Funkcja sprawdza, czy
-     podana wartość jest poprawną liczbą dodatnią i w razie błędu wyświetla komunikat i prosi o ponowne wprowadzenie
-     danych.Funkcja umożliwia również zakończenie programu przez wpisanie litery q.
-    -Funkcja UtworzTablice tworzy tablicę dwuwymiarową o podanych wymiarach i zwraca ją jako wartość typu int[,].
-     Funkcja wczytuje liczbę wierszy i kolumn tablicy za pomocą funkcji WczytajLiczbe i wyświetla informację o
-     utworzeniu tablicy.
-    -Funkcja WypelnijTablice wypełnia tablicę liczbami losowymi z podanego zakresu i zwraca ją jako wartość typu
-     int[,]. Funkcja wczytuje dolną i górną granicę zakresu liczb losowych za pomocą funkcji WczytajLiczbe i sprawdza,
-     czy użytkownik ma już utworzoną tablicę. Jeśli nie, funkcja prosi go o utworzenie tablicy za pomocą funkcji
-     UtworzTablice.Funkcja wyświetla informację o wypełnieniu tablicy.
-    -Funkcja WyswietlTablice wyświetla zawartość tablicy na ekranie i nie zwraca niczego(void).Funkcja sprawdza,
-     czy użytkownik ma już utworzoną i wypełnioną tablicę. Jeśli nie, funkcja prosi go o utworzenie i wypełnienie
-     tablicy za pomocą funkcji UtworzTablice i WypelnijTablice.
-    -Funkcja ObliczSume oblicza sumę elementów na głównej przekątnej tablicy i zwraca ją jako wartość typu int.
-     Funkcja sprawdza, czy użytkownik ma już utworzoną i wypełnioną tablicę. Jeśli nie, funkcja prosi go o utworzenie
-     i wypełnienie tablicy za pomocą funkcji UtworzTablice i WypelnijTablice.Funkcja wyświetla wartość sumy na ekranie.
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Amy_Autopsy_Death_date_28._11._23r_1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            ////Napisz program w języku C#, który realizuje następujące funkcjonalności:
+            ////    Program wczytuje z klawiatury liczbę n i tworzy tablicę dwuwymiarową o wymiarach n x n.
+            ////    Program wypełnia tablicę liczbami losowymi z zakresu od 1 do 100 i wyświetla jej zawartość na ekranie.
+            ////    Program oblicza i wyświetla sumę elementów na głównej przekątnej tablicy.
+            ////    Program posiada menu, które umożliwia użytkownikowi wybór jednej z pięciu funkcji statycznych, które
+            ////    realizują poszczególne kroki zadania.Menu jest wyświetlane na początku programu i po każdym wykonaniu funkcji.
+            ////    Menu ma następującą postać:
+            ////      Wybierz funkcję statyczną:
+            ////          1.WczytajLiczbe
+            ////          2.UtworzTablice
+            ////          3.WypelnijTablice
+            ////          4.WyswietlTablice
+            ////          5.ObliczSume
+            ////      -Funkcja WczytajLiczbe wczytuje liczbę z klawiatury i zwraca ją jako wartość typu int.Funkcja sprawdza, czy
+            ////       podana wartość jest poprawną liczbą dodatnią i w razie błędu wyświetla komunikat i prosi o ponowne wprowadzenie
+            ////       danych.Funkcja umożliwia również zakończenie programu przez wpisanie litery q.
+            ////      -Funkcja UtworzTablice tworzy tablicę dwuwymiarową o podanych wymiarach i zwraca ją jako wartość typu int[,].
+            ////       Funkcja wczytuje liczbę wierszy i kolumn tablicy za pomocą funkcji WczytajLiczbe i wyświetla informację o
+            ////       utworzeniu tablicy.
+            ////      -Funkcja WypelnijTablice wypełnia tablicę liczbami losowymi z podanego zakresu i zwraca ją jako wartość typu
+            ////       int[,]. Funkcja wczytuje dolną i górną granicę zakresu liczb losowych za pomocą funkcji WczytajLiczbe i sprawdza,
+            ////       czy użytkownik ma już utworzoną tablicę. Jeśli nie, funkcja prosi go o utworzenie tablicy za pomocą funkcji
+            ////       UtworzTablice.Funkcja wyświetla informację o wypełnieniu tablicy.
+            ////      -Funkcja WyswietlTablice wyświetla zawartość tablicy na ekranie i nie zwraca niczego(void).Funkcja sprawdza,
+            ////       czy użytkownik ma już utworzoną i wypełnioną tablicę. Jeśli nie, funkcja prosi go o utworzenie i wypełnienie
+            ////       tablicy za pomocą funkcji UtworzTablice i WypelnijTablice.
+            ////      -Funkcja ObliczSume oblicza sumę elementów na głównej przekątnej tablicy i zwraca ją jako wartość typu int.
+            ////       Funkcja sprawdza, czy użytkownik ma już utworzoną i wypełnioną tablicę. Jeśli nie, funkcja prosi go o utworzenie
+            ////       i wypełnienie tablicy za pomocą funkcji UtworzTablice i WypelnijTablice.Funkcja wyświetla wartość sumy na ekranie.
+            
+            #region code
+            //ReadNumber();
+
+            int[,] ints = CreateArray(2, 3);
+            FillArray(ints, 1, 10);
+            DisplayArray(ints);
+            CalculateSum(ints);
+            Console.WriteLine($"Suma elementów na przekątnej tablicy ints wynosi {0}", CalculateSum(ints));
+
+            //int[,] ints = CreateArray(2, 3);
+            //Console.WriteLine(ints[1, 1]);
+
+            //Random r = new Random();
+            //Console.WriteLine(r.Next(1, 100 + 1));
+            #endregion
+        }
+        static int ReadNumber()
+        {
+            int number;
+            while (true)
+            {
+                Console.WriteLine("Podaj wartość:");
+                string? input = Console.ReadLine();
+                if (input == "q")
+                {
+                    Console.WriteLine("Zakończono program");
+                    Thread.Sleep(1000);
+                    Environment.Exit(0);
+                }
+                bool success = int.TryParse(input, out number);
+                if (success && number > 0)
+                {
+                    return number;
+                }
+                else
+                {
+                    Console.WriteLine("Podana wartość nie jest poprawną liczbą dodatnią. Spróbuj ponownie lub wpisz 'q', aby zakończyć program");
+                }
+            }
+        }
+        static int[,] CreateArray(int rows, int cols)
+        {
+            return new int[rows, cols];
+        }
+        static int[,] FillArray(int[,] array, int min, int max)
+        {
+            Random r = new Random();
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    array[i,j] = r.Next(min, max+1);
+                }
+            }
+            return array;
+        }
+        static void DisplayArray(int[,] array)
+        {
+            for(int i = 0;i < array.GetLength(0); i++)
+            {
+                for(int j = 0; j< array.GetLength(1); j++)
+                {
+                    Console.WriteLine($"{array[i, j]}");
+                }
+                Console.WriteLine();
+            }
+        }
+        static int CalculateSum(int[,] array)
+        {
+            int sum = 0;
+            for (int i = 0; i < array.GetLength(0) ; i++)
+            {
+                sum += array[i,i];
+            }
+            return sum;
+        }
+    }
+}
