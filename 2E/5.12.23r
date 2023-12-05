@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _5._12._23r
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            ////Tworzenie listy liczb całkowitych
+            //List<int> ints = new List<int>();
+            ////Tworzenie listy liczb całkowitych z początkowymi elementami, używając inicjalizatora kolekcji
+            //List<int> ints1 = new List<int>() { 1, 2, 1, 10, -2};
+            ////Dodawanie elementów do listy za pomocą metody Add()
+            //ints1.Add(1);
+            //ints1.Add(111);
+            ////Usuwanie elementu z listy za pomocą metody Remove()
+            //ints1.Remove(1);
+            ////Wyświetlanie długości listy za pomocą właściwości Count
+            //Console.WriteLine("Długość listy: " + ints1.Count); //6
+            ////Wyświetlenie elementów listy
+            //foreach (int i in ints1)
+            //{
+            //    Console.Write($"{i}" + " "); //2 1 10 -2 1 111
+            //}
+
+            //Zad.1 - Utwórz listę liczb całkowitych i wypełnij ją losowymi wartościami z zakresu od 1 do 100.
+            //        Napisz metodę, która przyjmuje jako parametr listę liczb i zwraca listę liczb, które są
+            //        podzielne przez 3 lub 5. Wyświetl na konsoli listę liczb losowych i listę liczb podzielnych przez 3 lub 5.
+
+            List<int> list = new List<int>();
+            Random r = new Random();
+            for (int i = 0; i < 10; i++)
+            {
+                list.Add(r.Next(1,100+1));
+            }
+            Console.WriteLine("Lista liczb losowych: ");
+            foreach (int i in list)
+            {
+                Console.WriteLine($"{i}");
+            }
+            Console.WriteLine("Liczby podzielne przez 3 lub 5: "); 
+            metoda(list);
+        }
+        public static void metoda(List<int> list)
+        {
+            foreach (int i in list)
+            {
+                if (i % 3 == 0 || i % 5 == 0)
+                {
+                    Console.Write(i + " ");
+                }
+            }
+        }       
+    }
+}
