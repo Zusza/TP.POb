@@ -1,138 +1,79 @@
-Zad.1 - Napisz program, który:
-Definiuje funkcję UtworzTabliceLiczb(int n), która przyjmuje jako parametr liczbę całkowitą n i zwraca tablicę jednowymiarową o długości n, wypełnioną liczbami z zakresu od 1 do 10, które podaje użytkownik z klawiatury
-Definiuje funkcję ObliczPole(int a), która przyjmuje jako parametr liczbę całkowitą a i zwraca wartość pola kwadratu o boku a. Wzór na pole kwadratu to:
-P=a2
-Definiuje funkcję ObliczObwod(int a), która przyjmuje jako parametr liczbę całkowitą a i zwraca wartość obwodu kwadratu o boku a. Wzór na obwód kwadratu to:
-O=4a
-W funkcji Main:
-Deklaruje zmienną n i przypisuje jej wartość 5.
-Wywołuje funkcję UtworzTabliceLiczb(n) i przypisuje jej wynik do zmiennej tablica.
-Wyświetla na ekranie zawartość tablicy tablica.
-Dla każdego elementu tablicy tablica:
-Wywołuje funkcję ObliczPole i przypisuje jej wynik do zmiennej pole.
-Wywołuje funkcję ObliczObwod i przypisuje jej wynik do zmiennej obwod.
-Wyświetla na ekranie informację o polu i obwodzie kwadratu o boku równym danemu elementowi tablicy.
-Napisz funkcję, która umożliwia podanie w parametrze indeksu tablicy a następnie zwróci ona wynik pola i obwodu kwadratu
-
-Zad.2 - Napisz program, który:
-Definiuje funkcję UtworzTabliceLiczb(int n), która przyjmuje jako parametr liczbę całkowitą n i zwraca tablicę jednowymiarową o długości n, wypełnioną liczbami z zakresu od 1 do 10, które podaje użytkownik z klawiatury
-Definiuje funkcję ObliczPole(int a), która przyjmuje jako parametr liczbę całkowitą a i zwraca wartość pola kwadratu o boku a. Wzór na pole kwadratu to:
-P=a2
-Definiuje funkcję ObliczObwod(int a), która przyjmuje jako parametr liczbę całkowitą a i zwraca wartość obwodu kwadratu o boku a. Wzór na obwód kwadratu to:
-O=4a
-W funkcji Main:
-Deklaruje zmienną n i przypisuje jej wartość 5.
-Wywołuje funkcję UtworzTabliceLiczb(n) i przypisuje jej wynik do zmiennej tablica.
-Wyświetla na ekranie zawartość tablicy tablica.
-Dla każdego elementu tablicy tablica:
-Wywołuje funkcję ObliczPole i przypisuje jej wynik do zmiennej pole.
-Wywołuje funkcję ObliczObwod i przypisuje jej wynik do zmiennej obwod.
-Wyświetla na ekranie informację o polu i obwodzie kwadratu o boku równym danemu elementowi tablicy.
-Napisz funkcję, która umożliwia podanie w parametrze indeksu tablicy a następnie zwróci ona wynik pola i obwodu kwadratu
-
-https://drive.google.com/drive/folders/1iIAKNdDHyyc1lk41IHYXw6kSbIhS5zFd?usp=sharing
-
-----------------------------------???-----------------------------------------------
-Napisz program, który tworzy listę liczb całkowitych i wypełnia ją losowymi wartościami z zakresu od 1 do 100.
-Napisz program, który wyświetla menu z pięcioma opcjami, co chcesz zrobić z listą:
-Wyświetlić listę liczb podzielnych przez 3 lub 5
-Wyświetlić listę liczb nieparzystych
-Wyświetlić listę liczb posortowanych rosnąco
-Wyświetlić listę liczb posortowanych malejąco
-Wyjść z programu
-Napisz metodę dla każdej opcji, która przyjmuje jako parametr listę liczb i zwraca listę liczb spełniających warunek danej opcji.
-Napisz kod, który obsługuje wybór użytkownika i wywołuje odpowiednią metodę, a następnie wyświetla wynikową listę na konsoli.
-Napisz kod, który powtarza wyświetlanie menu i obsługę wyboru, dopóki użytkownik nie wybierze opcji wyjścia z programu.
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using System.Xml.Linq;
 
-class Program
+namespace spr5._12._23
 {
-    static void Main()
+    internal class Program
     {
-        List<int> liczby = GenerujListeLiczb(10); // Możesz zmienić liczbę, aby wygenerować różną długość listy
-
-        bool kontynuuj = true;
-        while (kontynuuj)
+        static void Main(string[] args)
         {
-            WyswietlMenu();
-            int wybor = int.Parse(Console.ReadLine());
+            //grupa 1
+            //Napisz program, który:
 
-            switch (wybor)
+            //Definiuje funkcję UtworzTabliceLiczb(int n), która przyjmuje jako parametr liczbę całkowitą n i zwraca tablicę jednowymiarową o długości n, wypełnioną liczbami z zakresu od 1 do 10, które podaje użytkownik z klawiatury
+            //Definiuje funkcję ObliczPole(int a), która przyjmuje jako parametr liczbę całkowitą a i zwraca wartość pola kwadratu o boku a. Wzór na pole kwadratu to:
+            //P = a2
+
+            //Definiuje funkcję ObliczObwod(int a), która przyjmuje jako parametr liczbę całkowitą a i zwraca wartość obwodu kwadratu o boku a. Wzór na obwód kwadratu to:
+            //O = 4a
+
+            //W funkcji Main:
+            //Deklaruje zmienną n i przypisuje jej wartość 5.
+            //Wywołuje funkcję UtworzTabliceLiczb(n) i przypisuje jej wynik do zmiennej tablica.
+            //Wyświetla na ekranie zawartość tablicy tablica.
+
+            //Dla każdego elementu tablicy tablica:
+            //Wywołuje funkcję ObliczPole i przypisuje jej wynik do zmiennej pole.
+            //Wywołuje funkcję ObliczObwod i przypisuje jej wynik do zmiennej obwod.
+
+            //Wyświetla na ekranie informację o polu i obwodzie kwadratu o boku równym danemu elementowi tablicy.
+            //Napisz funkcję, która umożliwia podanie w parametrze indeksu tablicy a następnie zwróci ona wynik pola i obwodu kwadratu
+
+            int n1 = 5;
+            int[] tablica1 = UtworzTabliceLiczb(n1);
+            Console.WriteLine("Zawartość tablicy: ");
+            foreach (int i1 in tablica1)
             {
-                case 1:
-                    WyswietlListe(PodzielnePrzez3lub5(liczby));
-                    break;
-                case 2:
-                    WyswietlListe(Nieparzyste(liczby));
-                    break;
-                case 3:
-                    WyswietlListe(PosortowaneRosnaco(liczby));
-                    break;
-                case 4:
-                    WyswietlListe(PosortowaneMalejaco(liczby));
-                    break;
-                case 5:
-                    kontynuuj = false;
-                    break;
-                default:
-                    Console.WriteLine("Nieprawidłowy wybór. Spróbuj ponownie.");
-                    break;
+                Console.WriteLine(i1);
+                int pole1 = ObliczPole(i1);
+                int obwod1 = ObliczObwod(i1);
+                Console.WriteLine($"Pole ma wartość: {pole1}, a obwód ma wartość: {obwod1}");
             }
         }
-    }
-
-    static List<int> GenerujListeLiczb(int ilosc)
-    {
-        Random random = new Random();
-        List<int> lista = new List<int>();
-        for (int i = 0; i < ilosc; i++)
+        static int[] UtworzTabliceLiczb(int n1)
         {
-            lista.Add(random.Next(1, 101));
+            int[]T1 = new int[n1];
+            for (int i1 = 0; i1 < T1.Length; i1++)
+            {
+                Console.WriteLine($"Podaj wartość od 1 do 10: ");
+                string x1 = Console.ReadLine();
+                if (int.TryParse(x1, out int l1))
+                {
+                    T1[i1] = l1;
+                }
+                else
+                {
+                    Console.WriteLine("Podano złe dane. Wpisz dane z zakresu 1-10");
+                    i1--;
+                }
+            }
+            return T1;
         }
-        return lista;
-    }
-
-    static void WyswietlMenu()
-    {
-        Console.WriteLine("Menu:");
-        Console.WriteLine("1. Wyświetl listę liczb podzielnych przez 3 lub 5");
-        Console.WriteLine("2. Wyświetl listę liczb nieparzystych");
-        Console.WriteLine("3. Wyświetl listę liczb posortowanych rosnąco");
-        Console.WriteLine("4. Wyświetl listę liczb posortowanych malejąco");
-        Console.WriteLine("5. Wyjście z programu");
-        Console.Write("Wybierz opcję: ");
-    }
-
-    static void WyswietlListe(List<int> lista)
-    {
-        Console.WriteLine("Wynikowa lista:");
-        foreach (int liczba in lista)
+        static int ObliczPole(int a1)
         {
-            Console.Write(liczba + " ");
+            int pole1 = a1 * a1;
+            return pole1;
         }
-        Console.WriteLine();
-    }
-
-    static List<int> PodzielnePrzez3lub5(List<int> lista)
-    {
-        return lista.Where(x => x % 3 == 0 || x % 5 == 0).ToList();
-    }
-
-    static List<int> Nieparzyste(List<int> lista)
-    {
-        return lista.Where(x => x % 2 != 0).ToList();
-    }
-
-    static List<int> PosortowaneRosnaco(List<int> lista)
-    {
-        return lista.OrderBy(x => x).ToList();
-    }
-
-    static List<int> PosortowaneMalejaco(List<int> lista)
-    {
-        return lista.OrderByDescending(x => x).ToList();
+        static int ObliczObwod(int a1)
+        {
+            int obwod1 = 4*a1;
+            return obwod1;
+        }
     }
 }
