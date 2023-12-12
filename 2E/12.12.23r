@@ -21,7 +21,7 @@ namespace _12._12._23r
             //    Console.WriteLine($"{item.Value}");
             //}
             //Console.WriteLine();
-
+            ////------------------------------------------------------------------------------------
             ////Tworzenie słownika, który przechowuje łańcuchy jako kluczw i liczby jako wartości
             //Dictionary<string, int> slownik1 = new Dictionary<string, int>();
             ////Dodajemy kilka par klucz-wartość
@@ -33,18 +33,86 @@ namespace _12._12._23r
             //{
             //    Console.WriteLine($"Klucz: {item1.Key}, Wartość: {item1.Value}");
             //}
+            ////------------------------------------------------------------------------------------
+            ////Utwórz słownik, który może przechowywać łańcuchy jako klucze i wartości
+            //Dictionary<string, string> capital = new Dictionary<string, string>();
+            ////Dodaj kilka par klucz-wartość do słownika za pomocą składni inicjalizatora kolekcji 
+            //capital = new Dictionary<string, string>
+            //{
+            //    {"Polska", "Warszawa"},
+            //    {"Niemcy", "Berlin"},
+            //    {"Francja", "Paryż"},
+            //    {"Włochy", "Rzym"},
+            //};
 
-            //Utwórz słownik, który może przechowywać łańcuchy jako klucze i wartości
-            Dictionary<string, string> capital = new Dictionary<string, string>();
-            //Dodaj kilka par klucz-wartość do słownika za pomocą składni inicjalizatora kolekcji 
-            capital = new Dictionary<string, string>
-            {
-                {"Polska", "Warszawa"},
-                {"Polska", "Warszawa"},
-                {"Polska", "Warszawa"},
-                {"Włochy", "Rzym"},
-            };
+            //foreach (var item in capital)
+            //{
+            //    Console.WriteLine($"Kraj: {item.Key}, Stolica: {item.Value}");
+            //}
+            //Console.WriteLine();
+            ////------------------------------------------------------------------------------------
+            ////Słownik telefoniczny
+            //Dictionary<string, string> phones = new Dictionary<string, string>();
+            //phones.Add("+48 123 456 789", "Katarzyna");
+            //phones.Add("+48 123 444 789", "Tomasz");
+            //phones.Add("+48 123 555 789", "Anna");
+            //phones.Add("+48 111 555 999", "Katarzyna");
 
+            //foreach (var item in phones) //albo (KeyValuePair<string, string> item in phones)
+            //{
+            //    Console.WriteLine($"Numer telefonu: {item.Key}, Właściciel: {item.Value}");
+            //}
+            ////------------------------------------------------------------------------------------
+            //Dictionary<string, string> animals = new Dictionary<string, string>();
+            //animals = new Dictionary<string, string>
+            //{
+            //    {"Pies", "HauHau"},
+            //    {"Kot", "MiauMiau"},
+            //    {"Krowa", "MuMu"},
+            //    {"Koń", "IhaIha"},
+            //};
+
+            //foreach (var animal in animals)
+            //{
+            //    Console.WriteLine($"Zwierzę: {animal.Key}, Dźwięk: {animal.Value}");
+            //}
+            //Console.WriteLine();
+            ////------------------------------------------------------------------------------------
+            //Dictionary<string, string> colors = new Dictionary<string, string>();
+
+            //colors.Add("Biały", "#FFFFFF");
+            //colors.Add("Czarny", "#000000");
+            //colors.Add("Czerwony", "#FF0000");
+            //colors.Add("Zielony", "#00FF00");
+            //colors.Add("Niebieski", "#0000FF");
+
+            //foreach (var color in colors)
+            //{
+            //    Console.WriteLine($"Kolor: {color.Key}, Hex: {color.Value}");
+            //}
+            //Console.WriteLine();
+            ////------------------------------------------------------------------------------------
+            //Dictionary<string, string> data = new Dictionary<string, string>();
+
+            ////Poproś użytkownika o podanie liczby par klucz-wartość
+            //Console.WriteLine("Podaj ile par klucz-wartość chcesz wprowadzić: ");
+            //int n = int.Parse(Console.ReadLine());
+
+            ////W pętli pobierzemy od użytkownika klucz i wartość następnie dodamy do słownika
+            //for (int i = 0; i < n; i++)
+            //{
+            //    Console.WriteLine("Podaj klucz: ");
+            //    string key = Console.ReadLine();
+            //    Console.WriteLine("Podaj wartość: ");
+            //    string value = Console.ReadLine();
+            //    data.Add(key, value);
+            //}
+
+            //foreach (var item in data)
+            //{
+            //    Console.WriteLine($"Klucz: {item.Key}, Wartość: {item.Value}");
+            //}
+            //Console.WriteLine();
         }
     }
 }
