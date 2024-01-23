@@ -35,6 +35,24 @@ namespace szyper_16_01_2024_2 classes
             ArthurMorgan.Adress.HouseNumber = "3/6";
             ArthurMorgan.Adress.PosterCode = "26-036";
             Conosle.WriteLine(ArthurMorgan.Adress.GetAdress());
+
+            ArthurMorgan.DateOfBirth = DateTime.Now;
+            Console.WriteLine("Data i czas: {0}", ArthurMorgan.DateOfBirth); //Data i czas: 23.01.2024 12:08:11
+            
+            ArthurMorgan.DateOfBirth = DateTime();
+            Console.WriteLine("Data i czas: {0}", ArthurMorgan.DateOfBirth); //Data i czas: 01.01.0001 00:00:00
+            
+            ArthurMorgan.DateOfBirth = DateTime(2000, 3, 29);
+            Console.WriteLine("Data: {0}", ArthurMorgan.DateOfBirth.ToShortDateString); //Data: 29.03.2000
+            
+            ArthurMorgan.DateOfBirth = DateTime(2000, 3, 29, 12, 13, 36);
+            Console.WriteLine("Czas: {0}", ArthurMorgan.DateOfBirth.ToShortTimeString); //Czas: 12.13
+            
+            ArthurMorgan.DateOfBirth = DateTime(2000, 3, 29, 12, 13, 36);
+            Console.WriteLine("Czas: {0}", ArthurMorgan.DateOfBirth.ToLongTimeString); //Czas: 12.13.26
+            
+            ArthurMorgan.DateOfBirth = DateTime(2000, 3, 29, 12, 13, 36);
+            Console.WriteLine("Czas: {0}", ArthurMorgan.DateOfBirth.ToLongDateString); //Data i dzień tygodnia: Wtorek, 29.03.2000
             
             Conosle.ReadKey();
         }
