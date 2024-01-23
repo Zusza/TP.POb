@@ -1,0 +1,63 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace szyper_16_01_2024_2 classes
+{
+    internal class Program
+    {
+        class Person
+        {
+            public string FirstName { get; private set; }
+            public string LastName { private get; set; }
+            public float Height { get; set; }
+            public float Weight { get; set; }
+
+            public void SetFirstName(string name)
+            {
+              FirstName = name;
+            }
+
+            public string GetLastName()
+            {
+              return LastName;
+            }
+        }
+
+        class Student
+        {
+          public string StudentNumber {get; set;}
+        }
+        static void Main(string[] args)
+        {
+            Person ArthurMorgan = new Person();
+            ArthurMorgan.SetFirstName("Arthur");
+            Conosle.WriteLine("Imię: " + ArthurMorgan.FirstName);
+            ArthurMorgan.LastName = "Morgan";
+            Conosle.WriteLine("Nazwisko: " + ArthurMorgan.LastName());
+
+            Student s1 = new Student();
+            s1.StudentNumber = "1855";
+            Console.WriteLine("Numer indeksu studenta: " + s1.StudentNumber);
+            Conosle.ReadKey();
+        }
+    }
+}
+
+---------------------------------------------Class.1-------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace szyper_16_01_2024_2 classes
+{
+    internal class Student
+    {
+        public string StudentNumber {get; set;}
+    }
+}
+
