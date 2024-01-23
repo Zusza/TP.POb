@@ -8,28 +8,6 @@ namespace szyper_16_01_2024_2 classes
 {
     internal class Program
     {
-        class Person
-        {
-            public string FirstName { get; private set; }
-            public string LastName { private get; set; }
-            public float Height { get; set; }
-            public float Weight { get; set; }
-
-            public void SetFirstName(string name)
-            {
-              FirstName = name;
-            }
-
-            public string GetLastName()
-            {
-              return LastName;
-            }
-        }
-
-        class Student
-        {
-          public string StudentNumber {get; set;}
-        }
         static void Main(string[] args)
         {
             Person ArthurMorgan = new Person();
@@ -41,12 +19,58 @@ namespace szyper_16_01_2024_2 classes
             Student s1 = new Student();
             s1.StudentNumber = "1855";
             Console.WriteLine("Numer indeksu studenta: " + s1.StudentNumber);
+
+            Teacher t1 = new Teacher();
+            t1 Subjects = new List<string> {"Math", "IT", "History"};
+            Console.WriteLine(t1.GetSubjects());
+            //foreach (var subject in t1.Subjects) //Wyświetlanie v1
+            //{
+            //     Console.WriteLine(subject);
+            //}
+            //Console.WriteLine(string.Join(", ", t1.Subjects)); //Wyświetlanie v2
+
+            ArthurMorgan Adress = new Adress();
+            ArthurMorgan.Adress.City = "Blackwater";
+            ArthurMorgan.Adress.Street = "Lumbago";
+            ArthurMorgan.Adress.HouseNumber = "3/6";
+            ArthurMorgan.Adress.PosterCode = "26-036";
+            Conosle.WriteLine(ArthurMorgan.Adress.GetAdress());
+            
             Conosle.ReadKey();
         }
     }
 }
-
 ---------------------------------------------Class.1-------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace szyper_16_01_2024_2 classes
+{
+    internal class Program
+    {
+        class Person
+        {
+            public string FirstName { get; private set; }
+            public string LastName { private get; set; }
+            public float Height { get; set; }
+            public float Weight { get; set; }
+            public Adress Adress {get; set;}
+            public DateTime DateOfBirth {get; set;}
+
+            public void SetFirstName(string name)
+            {
+              FirstName = name;
+            }
+
+            public string GetLastName()
+            {
+              return LastName;
+            }
+        }
+---------------------------------------------Class.2-------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,3 +85,43 @@ namespace szyper_16_01_2024_2 classes
     }
 }
 
+--------------------------------------------Class.3-----------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace szyper_16_01_2024_2 classes
+{
+    internal class Teacher
+    {
+        public List<string> Subjects {private get; set;}
+        public string GetSubjects()
+        {
+            return string.Join(", ", Subjects); 
+        }
+    }
+}
+--------------------------------------------Class.4-----------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace szyper_16_01_2024_2 classes
+{
+    internal class Adress
+    {
+            public string City { get; set; }
+            public string Street {get; set; }
+            public float HouseNumber { get; set; }
+            public float PostalCode { get; set; }
+
+            public string GetAdress
+            {
+                return $"Miasto: {City}, ulica: {Street} {HouseNumber}, kod pocztowy: {PostalCode}";
+            }
+    }
+}
