@@ -1,0 +1,40 @@
+using _6._02._24r.classes;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _6._02._24r
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Person p1 = new Person("Arthur", "Morgan");
+            Console.WriteLine(p1.FirstName);
+        }
+    }
+}
+
+---------------------------------Person.cs-----------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _6._02._24r.classes
+{
+    internal class Person
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; } 
+        public Person(string firstName, string lastName) 
+        {
+            FirstName = firstName;
+            LastName = lastName;
+        }
+    }
+}
