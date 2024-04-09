@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _25._11._23_Szyper
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] numbers = new int[5];
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                Console.WriteLine("Podaj kolejną liczbę całkowitą:");
+                numbers[i] = GetIntegerFromUser();
+            }
+
+            int sum = CalculateSum (numbers);
+
+            Console.WriteLine("Suma podanych liczb wynosi: " + sum);
+            }
+
+            static int GetIntegerFromUser()
+            {
+                int input;
+                bool isValidInput = false;
+
+            do
+            {
+                string userInput = Console.ReadLine();
+    
+                if (int.TryParse(userInput, out input))
+                {
+                    isValidInput = true;
+                }
+                else
+                {
+                    Console.WriteLine("Niepoprawna wartość. Podaj liczbę całkowitą:");
+                }
+            } 
+            while (!isValidInput);
+                return input;
+            }
+
+            static int CalculateSum(int[] numbers)
+            {
+                int sum = 0;
+
+            foreach (int number in numbers)
+            {
+                sum += number;
+            }
+            return sum;
+            }
+    }
+}
