@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Management.Instrumentation;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using static cw_23_04_2024.Program.Car;
 using static cw_23_04_2024.Program.Vehicle;
@@ -22,16 +23,16 @@ namespace cw_23_04_2024
 
             public string Brand { get; set; }
             public string Model { get; set; }
-            //public double Fuel { get; private set; }
+            public double Fuel { get; set; }
             public FuelType Fueltype { get;  set; }
             public ushort Speed { get; set; }
             public void StartEngine()
             {
-                Console.WriteLine("Engine started");
+                Console.WriteLine("Włączenie silnika");
             }
             public void StopEngine()
             {
-                Console.WriteLine("Engine stopped");
+                Console.WriteLine("Zatrzymanie silnika");
             }
         }
         public class Car : Vehicle
@@ -44,7 +45,7 @@ namespace cw_23_04_2024
             public virtual void StartEngine()
             {
                 base.StartEngine(); //przeciazenie
-                Console.WriteLine("Silnik samochodu uruchomiony"); //przyslanianie //"chleb pszenny","3.99f", new DataTime = 30.04.24r , true | zad zam - A, C, B, B (chyba xd)
+                Console.WriteLine("Silnik samochodu uruchomiony"); //przyslanianie //"chleb pszenny","3.99f", new DataTime = "30.04.24r" , true | zad zam - A, C, B, B (chyba xd)
             }
             public virtual void StopEngine()
             {
@@ -101,13 +102,59 @@ namespace cw_23_04_2024
         public class ElectricCar : Car
         {
             public double BatteryCapacity { get; set; }
+            public double MaxBatteryCapacity { get; set; }
             public override void StartEngine()
             {
                 base.StartEngine();
+                Console.WriteLine("\nWłączanie systemu elektrycznego");
             }
             public override void StopEngine()
             {
                 base.StopEngine();
+                Console.WriteLine("\nWyłączanie systemu elektrycznego");
+            }
+            public void ChargeBattery(double kWh)
+            {
+                if (kWh <= 0)
+                {
+                    Console.WriteLine("\nNie można naładować baterii ujemną/zerową wartością");
+                }
+                else if (BatteryCapacity + kWh > MaxBatteryCapacity)
+                {
+                    Console.WriteLine($"Nie można naładować baterii o {kWh} kWh, ponieważ przekroczyłoby to maksymalną pojemność akumulatora wynoszącą {MaxBatteryCapacity} kWh");
+                }
+                else
+                {
+                    AnimationHelper.ShowProgress("Ładowanie baterii: ", "zakończone", 500, 10);
+                    BatteryCapacity += kWh;
+                    Console.WriteLine($"\nNaładowano baterie o {kWh} kWh");
+                }
+            }
+            public static class AnimationHelper
+            {
+                public static void ShowProgress(string prefix, string suffix, int delay, int totalSteps)
+                {
+                    for (int i = 0; i <= totalSteps; i++)
+                    {
+                        Console.Write($"\r{prefix}[{new string('|', i)}{new string('.', totalSteps - i)}] {suffix} {i*(100 / totalSteps)}%");
+                        Thread.Sleep(delay);
+                    }
+                }
+            }
+        }
+        class Truck : Vehicle
+        {
+            public double LoadCapacity { get; set; } //maksymalna nośność pojazdu
+            public void LoadCargo(double weight)
+            {
+                if (weight <= 0)
+                {
+                    Console.WriteLine("\nNie można załadować ujemnej wagi");
+                }
+                else if (weight > LoadCapacity)
+                {
+                    Console.WriteLine($"\nNie mozna załadować ładunku o wadze {weight} kg, ponieważ przekracza maksymalną nośność");
+                }
             }
         }
         static void Main(string[] args)
@@ -122,6 +169,23 @@ namespace cw_23_04_2024
                 IsAutomatic = true,
                 BatteryCapacity = 95
             };
+
+            //tesla.StartEngine();
+            //tesla.ChargeBattery(10);
+            //Console.WriteLine();
+
+            Truck volvo = new Truck
+            {
+                Brand = "Volvo",
+                Model = "FH",
+                Fuel = 300,
+                Fueltype = FuelType.Diesel,
+                LoadCapacity = 25000
+            };
+            volvo.LoadCargo(5000);
+            volvo.StartEngine();
+
+            Console.ReadKey();
         }
     }
 }
