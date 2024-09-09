@@ -1,0 +1,105 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _9._09._24r
+{
+    internal class Program
+    {
+        public class Shape
+        {
+            public virtual float CalculateArea()
+            {
+                return 0;
+            }
+
+            public virtual float CalculatePerimeter()
+            {
+                return 0;
+            }
+        }
+        public class Rectrngle : Shape
+        {
+            private float width;
+            private float height;
+
+            public void SetDimension(float w, float h)
+            {
+                width = w;
+                height = h;
+            }
+            public override float CalculateArea()
+            {
+                return width * height;
+            }
+
+            public override float CalculatePerimeter()
+            {
+                return 2 * (width + height);
+            }
+        }
+
+        public class Circle : Shape
+        {
+            private float radius;
+
+            public Circle(float r)
+            {
+                radius = r;
+            }
+
+            public override float CalculateArea()
+            {
+                return (float)Math.PI * radius * radius;
+            }
+
+            public override float CalculatePerimeter()
+            {
+                return (float)(2 * Math.PI * radius);
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            while (true)
+            {
+                Console.WriteLine("1.Prostokąt");
+                Console.WriteLine("2.Koło");
+                Console.WriteLine("3.Trójkąt");
+                Console.WriteLine("4.Trapez");
+                Console.WriteLine("5.Kula");
+                Console.WriteLine("6.Wyjście");
+                Console.WriteLine("Wybierz kształt do obliczenia: ");
+
+                int choice = int.Parse(Console.ReadLine());
+
+                switch (choice)
+                {
+                    case 1:
+                        Rectrngle rect = new Rectrngle();
+                        Console.Write("Podaj szerokość: ");
+                        float RectWith = float.Parse(Console.ReadLine());
+                        Console.Write("Podaj wysokość: ");
+                        float RectHeight = float.Parse(Console.ReadLine());
+                        rect.SetDimension(RectWith, RectHeight);
+                        Console.WriteLine("Powierzchnia prostokąta: {0}", rect.CalculateArea());
+                        Console.WriteLine("Obwód prostokąta: {0}", rect.CalculatePerimeter());
+                        Console.WriteLine(" ");
+                        break;
+                    case 2:
+                        Circle circle = new Circle();
+                        Console.WriteLine("Podaj promień: ");
+                        float r = float.Parse(Console.ReadLine());
+                        break;
+                    case 6:
+                        break;
+                    default:
+                        Console.WriteLine("Nieprawidłowy wybór. Spróbuj ponownie.");
+                        break;
+                }
+            }
+        }
+    }
+}
