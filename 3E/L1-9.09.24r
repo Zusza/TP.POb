@@ -52,12 +52,12 @@ namespace _9._09._24r
 
             public override float CalculateArea()
             {
-                return (float)Math.PI * radius * radius;
+                return (float)Math.Round((Math.PI * radius * radius), 2);
             }
 
             public override float CalculatePerimeter()
             {
-                return (float)(2 * Math.PI * radius);
+                return (float)Math.Round((2 * Math.PI * radius), 2);
             }
         }
 
@@ -89,15 +89,36 @@ namespace _9._09._24r
                         Console.WriteLine(" ");
                         break;
                     case 2:
-                        Circle circle = new Circle();
-                        Console.WriteLine("Podaj promień: ");
-                        float r = float.Parse(Console.ReadLine());
+                        float circRadius = GetValidInput("Podaj promień: ");
+                        Circle circ = new Circle(circRadius);
+                        Console.WriteLine("Powierzchnia koła: {0}", circ.CalculateArea());
+                        Console.WriteLine("Obwód koła: {0}", circ.CalculatePerimeter());
+                        Console.WriteLine(" ");
                         break;
                     case 6:
                         break;
                     default:
                         Console.WriteLine("Nieprawidłowy wybór. Spróbuj ponownie.");
                         break;
+                }
+            }
+        }
+
+        private static float GetValidInput(string prompt)
+        {
+            float result;
+            while (true)
+            {
+                Console.WriteLine(prompt);
+                if (float.TryParse(Console.ReadLine(), out result) && result > 0)
+                {
+                    return result;
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Nieprawidłowe dane. Spróbuj ponownie.");
+                    Console.ResetColor();
                 }
             }
         }
