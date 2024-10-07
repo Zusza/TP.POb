@@ -6,152 +6,173 @@ using System.Threading.Tasks;
 
 public class Person
 {
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public Person(string firstName, string lastName)
-    {
-        FirstName = firstName;
-        LastName = lastName;
-    }
+  public string FirstName { get; set; }
+  public string LastName { get; set; }
+  public Person(string firstName, string lastName)
+  {
+    FirstName = firstName;
+    LastName = lastName;
+  }
 }
 
 public class Author : Person
 {
-    public List<Book> BookList { get; set; }
-    public Author(string firstName, string lastName) : base(firstName, lastName)
-    {
-        BookList = new List<Book>();
-    }
+  public List<Book> BookList { get; set; }
+  public Author(string firstName, string lastName) : base(firstName, lastName)
+  {
+    BookList = new List<Book>();
+  }
 
-    public void AddBook(Book book)
-    {
-        BookList.Add(book);
-    }
+  public void AddBook(Book book)
+  {
+    BookList.Add(book);
+  }
 }
 
 public class Book
 {
-    public string Title { get; set; }
-    public Author Author { get; set; }
+  public string Title { get; set; }
+  public Author Author { get; set; }
 
-    public int PublicationYear { get; set; }
+  public int PublicationYear { get; set; }
 
-    public Book(string title, Author author, int publicationYear)
-    {
-        Title = title;
-        Author = author;
-        PublicationYear = publicationYear;
-    }
+  public Book(string title, Author author, int publicationYear)
+  {
+    Title = title;
+    Author = author;
+    PublicationYear = publicationYear;
+  }
 }
 
 public class Reader : Person
 {
-    public List<Book> BorrowedBooksList { get; set; }
-    public Reader(string firstName, string lastName) : base(firstName, lastName)
-    {
-        BorrowedBooksList = new List<Book>();
-    }
-    public void AddBook(Book book)
-    {
-        BorrowedBooksList.Add(book);
-        Console.WriteLine($"Czytelnik {FirstName} {LastName} wypożyczył książkę: {book.Title}");
-    }
-
-
+  public List<Book> BorrowedBooksList { get; set; }
+  public Reader(string firstName, string lastName) : base(firstName, lastName)
+  {
+    BorrowedBooksList = new List<Book>();
+  }
+  public void BorrowBook(Book book)
+  {
+    BorrowedBooksList.Add(book);
+    Console.WriteLine($"Czytelnik {FirstName} {LastName} wypożyczył książkę: {book.Title}");
+  }
 }
 
 public class Library
 {
-    public List<Book> BooksList { get; set; }
-    public List<Author> AuthorsList {  get; set; }
-    public List<Reader> ReadresList { get; set; }
+  public List<Book> BooksList { get; set; }
+  public List<Author> AuthorsList { get; set; }
+  public List<Reader> ReadersList { get; set; }
 
-    public Library()
-    {
-        BooksList = new List<Book>();
-        AuthorsList = new List<Author>();
-        ReadresList = new List<Reader> ();
-    }
+  public Library()
+  {
+    BooksList = new List<Book>();
+    AuthorsList = new List<Author>();
+    ReadersList = new List<Reader>();
+  }
 
-    public void AddBook(Book book)
-    {
-        BooksList.Add(book);
-    }
+  public void AddBook( Book book)
+  {
+    BooksList.Add(book);
+  }
 
-    public void AddAuthor(Author author)
-    {
-        AuthorsList.Add(author);
-    }
+  public void AddReader( Reader reader)
+  {
+    ReadersList.Add(reader);
+  }
 
-    public void AddReader(Reader reader)
-    {
-        ReadresList.Add(reader);
-    }
+  public void AddAuthor(Author author)
+  {
+    AuthorsList.Add(author);
+  }
 
-    public void BorrowBook(Reader reader, Book book)
+  public void BorrowBook(Reader reader, Book book)
+  {
+    if (BooksList.Contains(book))
     {
-        if (BooksList.Contains(book))
-        {
-            reader.BorrowBook(book);
-        }
-        else
-        {
-            Console.WriteLine("Książka nie jest dostępna");
-        }
+      reader.BorrowBook(book);
+      BooksList.Remove(book);
     }
+    else
+    {
+      Console.WriteLine("Książka nie jest dostępna w bibliotece");
+    }
+  }
 
-    public void DisplayBooks()
+  public void DisplayBooks()
+  {
+    Console.WriteLine("Książki w bibliotece:");
+    foreach(Book book in BooksList) 
     {
-        Console.WriteLine("Książki w bibliotece: ");
-        foreach(Book book in BooksList)
-        {
-            Console.WriteLine($"{book.Title} - {book.Author.FirstName} {book.Author.LastName} {book.PublicationYear}");
-        }
+      Console.WriteLine($"{book.Title} - {book.Author.FirstName} {book.Author.LastName} {book.PublicationYear}");
     }
+  }
 
-    public void DisplayAuthors()
+  public void DisplayAuthors()
+  {
+    Console.WriteLine("Autorzy w bibliotece:");
+    foreach(Author author in AuthorsList)
     {
-        Console.WriteLine("Autorzy w bibliotece: ");
-        foreach (Author author in AuthorsList)
-        {
-            Console.WriteLine($"{author.FirstName} {author.LastName}");
-        }
+      Console.WriteLine($"{author.FirstName} {author.LastName}");
     }
+  }
 
-    public void DisplayBorrowedBooks()
+
+  //dodać metodę wyswietlającą wszystkich autorów w formie tabeli
+  //???????????????????????
+
+  public void DisplayBorrowedBooks()
+  {
+    Console.WriteLine("Wypożyczone książki:");
+    foreach (var reader  in ReadersList)
     {
-        Console.WriteLine("Wypożyczone książki: ");
-        foreach(var reader in ReadresList)
-        {
-            foreach(Book book in reader.BorrowedBooksList)
-            {
-                Console.WriteLine($"{book.Title} - {book.Author.FirstName} {book.Author.LastName} wypżyczona przez: {reader.FirstName} {reader.LastName}");
-            }
-        }
+      foreach (Book book in reader.BorrowedBooksList)
+      {
+        Console.WriteLine($"{book.Title} - {book.Author.FirstName} {book.Author.LastName} ({book.PublicationYear}) wypożyczona przez {reader.FirstName} {reader.LastName}");
+      }
     }
+  }
 }
 
 namespace _2_dziedziczenie_kompozycja_biblioteka
 {
-    internal class Program
+  internal class Program
+  {
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Author author = new Author("Adam", "Mickiewicz");
-            Author author2 = new Author("Henryk", "Sienkiewicz");
-            Book book = new Book("Pan Tadeusz", author, 1834);
-            Book book2 = new Book("Quo Vadis", author2, 1896);
+      Author author1 = new Author("Adam", "Mickiewicz");
+      Author author2 = new Author("Henryk", "Sienkiewicz");
+      
+      Book book1 = new Book("Pan Tadeusz", author1, 1834);
+      Book book2 = new Book("Quo Vadis", author2, 1896);
 
-            author.AddBook(book);
-            author2.AddBook(book2);
+      author1.AddBook(book1);
+      author2.AddBook(book2);
 
-            Library library = new Library();
-            library.AddBook(book);
-            library.AddBook(book2);
+      Library library = new Library();
 
-            library.AddAuthor(author);
-            library.AddAuthor(author2);
-            Console.ReadKey();
-        }
+      library.AddBook(book1);
+      library.AddBook(book2);
+
+      library.AddAuthor(author1);
+      library.AddAuthor(author2);
+
+      Reader reader1 = new Reader("Jan", "Kowalski");
+      Reader reader2 = new Reader("Anna", "Wiśniewska");
+
+      library.AddReader(reader1);
+      library.AddReader(reader2);
+
+      //wyświetlenie menu
+      bool exit = false;
+      while (!exit)
+      {
+
+      }
+
+
+
+      Console.ReadKey();
     }
+  }
 }
