@@ -1,0 +1,105 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _4._11._24r
+{
+//	Interfejsy
+// Zdefiniuj klasę Book, która ma reprezentować informacje o książce, takie jak tytuł,
+//autor, rok wydania i cena.
+// Zaimplementuj interfejs IComparable<Book> w klasie Book, który pozwala na
+//porównywanie obiektów typu Book według ich ceny.Aby to zrobić, zdefiniuj metodę
+//CompareTo(Book other), która zwraca liczbę całkowitą oznaczającą relację pomiędzy
+//bieżącym obiektem a innym obiektem typu Book.
+// Zdefiniuj konstruktor klasy Book, który przyjmuje jako parametry tytuł, autora, rok
+//wydania i cenę książki i inicjalizuje odpowiednie pola klasy.
+// Zdefiniuj metodę ToString() klasy Book, która zwraca reprezentację tekstową obiektu
+//typu Book, składającą się z tytułu, autora, roku wydania i ceny książki, oddzielonych
+//przecinkami.
+// Zdefiniuj klasę Program, która zawiera metodę Main, w której utwórz listę książek
+//typu Book i dodaj do niej kilka przykładowych obiektów.
+// Posortuj listę książek według ceny, używając metody Sort klasy List<T>.Wyświetl
+//posortowaną listę na konsoli, używając metody ToString() klasy Book.
+// Posortuj listę książek według innych kryteriów, np.daty publikacji, autora, tytułu,
+//używając metod OrderBy, OrderByDescending i ThenBy z przestrzeni nazw
+//System.Linq.Wyświetl posortowane listy na konsoli, używając metody ToString() klasy
+//Book.
+	class Book : IComparable<Book>
+	{
+		string title;
+		public string author;
+		public int YearOfPublicaton;
+		public double price;
+
+		public Book(string title, string author, int YearOfPublicaton, double price)
+		{
+			this.title = title;
+			this.author = author;
+			this.YearOfPublicaton = YearOfPublicaton;
+			this.price = price;
+		}
+
+		public override string ToString() 
+		{
+			return $"{title}, {author}, {YearOfPublicaton}, {price} zł";
+		}
+
+		public int CompareTo(Book other)
+		{
+			if (other == null) return 1;
+			return price.CompareTo(other.price);
+		}
+	}
+	internal class Program
+	{
+		static void Main(string[] args)
+		{
+			List<Book> books = new List<Book>();
+			books.Add(new Book("Z mgły zrodzony", "Sanderson", 2006, 59.99));
+			books.Add(new Book("Bohater wieków", "Sanderson", 2007, 79.99));
+			books.Add(new Book("Studnia wstąpienia", "Sanderson", 2008, 69.99));
+			books.Add(new Book("Pan Tadeusz", "Mickiewicz", 1811, 29.99));
+			books.Add(new Book("Lalka", "Prus", 1729, 19.99));
+
+			Console.WriteLine("Lista książek: ");
+			foreach (Book book in books) 
+			{
+                Console.WriteLine(book.ToString());
+			}
+
+			books.Sort();
+
+			Console.WriteLine("\nLista posortowana wg ceny");
+			foreach (Book book in books)
+			{
+                Console.WriteLine(book);
+			}
+
+			Console.WriteLine("\nLista posortowana wg daty publikacji");
+			var sortedbyyear = books.OrderBy(b => b.YearOfPublicaton);
+			foreach (Book book in sortedbyyear)
+			{
+                Console.WriteLine(book);
+			}
+
+			Console.WriteLine("\nLista posortowana wg autorów");
+			var sortedbyauthor = books.OrderBy(b => b.author);
+			foreach (Book book in sortedbyauthor)
+			{
+				Console.WriteLine(book);
+			}
+
+			Console.WriteLine("\nLista posortowana wg ceny nierosnąco a następnie wg roku od najstarszej książki");
+			var sortedbypriceandyear = books.OrderByDescending(b => b.price).ThenBy(b => b.YearOfPublicaton);
+			foreach (Book book in sortedbypriceandyear)
+			{
+				Console.WriteLine(book);
+			}
+
+			Console.ReadKey();
+		}
+	}
+}
