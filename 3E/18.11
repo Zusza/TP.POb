@@ -1,0 +1,147 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using static _18._11._24r_szyper.Car;
+
+namespace _18._11._24r_szyper
+{
+    public interface ICar 
+    {
+        void StartEgine();
+        void Drive();
+    }
+
+    public abstract class Car : ICar
+    {
+        string Brand { get; set; }
+        string Model { get; set; }
+        int Year { get; set; }
+        string Owner { get; set; }
+
+        public Car(string brand, string model, int year, string owner)
+        {
+            Brand = brand;
+            Model = model;
+            Year = year;
+            Owner = owner;
+        }
+
+        public void StartEgine()
+        {
+            Console.WriteLine($"{Brand} {Model} uruchamia silnik");
+        }
+
+        public abstract void Drive();
+
+        public class ElectricCar : Car
+        {
+            public ElectricCar(string brand, string model, int year, string owner) : base(brand, model, year, owner) { }
+
+            public override void Drive()
+            {
+                Console.WriteLine("Jazda na elektryczności!");
+            }
+        }
+
+        public class GasolineCar : Car
+        {
+            public GasolineCar(string brand, string model, int year, string owner) : base(brand, model, year, owner) { }
+
+            public override void Drive()
+            {
+                Console.WriteLine("Jazda na benzynie!");
+            }
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Car tesla = new ElectricCar("Tesla", "Model S", 2020, "Jan Kowalski");
+            Car ford = new GasolineCar("Ford", "Mustang", 2018, "Anna Nowak");
+            Car nissan = new ElectricCar("Nissan", "Leaf", 2019, "Piotr Wiśniewski");
+            Car bmw = new GasolineCar("BMW", "X5", 2017, "Katarzyna Zielińska");
+
+            //tesla.StartEgine();
+            //tesla.Drive();
+
+            //ford.StartEgine();
+            //ford.Drive();
+
+            //nissan.StartEgine();
+            //nissan.Drive();
+
+            //bmw.StartEgine();
+            //bmw.Drive();
+
+            List<Car> list = new List<Car> { tesla, ford, nissan, bmw };
+
+            //foreach (Car car in list)
+            //{
+            //    car.StartEgine();
+            //    car.Drive();
+            //}
+
+            bool run = true;
+            while (run)
+            {
+                Console.WriteLine("1. Sortowanie według właściciela");
+                Console.WriteLine("2. Sortowanie według roku produkcji");
+                Console.WriteLine("3. Sortowanie według marki");
+                Console.WriteLine("4. Sortowanie według modelu");
+                Console.WriteLine("5. Wyjście");
+                Console.Write("Wybierz opcję: ");
+                string choice = Console.ReadLine();
+
+                switch (choice)
+                {
+                    case "1":
+                        SortByOwner(list);
+                        break;
+                    case "2":
+                        SortByYear(list);
+                        break;
+                    case "3":
+                        SortByBrand(list);
+                        break;
+                    case "4":
+                        SortByModel(list);
+                        break;
+                    case "5":
+                        run = false;
+                        Console.WriteLine("Zakończono program.");
+                        break;
+                    default:
+                        Console.WriteLine("Nieprawidłowy wybór. Spróbuj ponownie.");
+                        break;
+                }
+            }
+        }
+
+        private static void SortByModel(List<Car> list)
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void SortByBrand(List<Car> list)
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void SortByYear(List<Car> list)
+        {
+            var sorted = list.OrderBy(b => b.Year).ToList();
+            foreach (var car in sorted)
+            {
+                Console.WriteLine($"{car.Year} - {car.Brand} {car.Model} (Właściciel: {car.Owner})");
+            }
+        }
+
+        private static void SortByOwner(List<Car> list)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
